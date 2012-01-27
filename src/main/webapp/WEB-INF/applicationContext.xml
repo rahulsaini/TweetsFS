@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN 2.0//EN" "http://www.springframework.org/dtd/spring-beans-2.0.dtd">
+<beans>
+    <!--************************************************************************ -->
+    <!-- The data source via Apache Commons DBCP -->
+    <!--************************************************************************ -->
+
+    <bean id="tweetsfsDS" destroy-method="close" class="org.apache.commons.dbcp.BasicDataSource">
+        <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
+        <property name="url" value="jdbc:mysql://localhost:3306/tweetsfs"/>
+        <property name="username" value="tweetsfsUser"/>
+        <property name="password" value="tweetsfs12345"/>
+    </bean>
+
+    <bean id="userDAO" name="userDAO" class="com.cswi.tweetsfs.dao.UserDAOImpl">
+        <property name="dataSource" ref="tweetsfsDS"/>
+    </bean>
+
+    <bean id="loginService" name="loginService" class="com.cswi.tweetsfs.serviceimpl.LoginServiceImpl">
+        <property name="userDAO" ref="userDAO"/>
+    </bean>
+
+
+   <!-- <bean id="tweetsfsDS" class="org.springframework.jndi.JndiObjectFactoryBean">
+        <property name="lookupOnStartup" value="true"/>
+        <property name="jndiName" value="java:comp/env/jdbc/tweetsfsDS"/>
+        <property name="proxyInterface" value="javax.sql.DataSource"/>
+    </bean>  -->
+
+
+</beans>

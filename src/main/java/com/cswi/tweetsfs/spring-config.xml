@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	<!--************************************************************************ -->
+	<!-- The data source -->
+	<!--************************************************************************ -->
+	<!-- <bean id="tweetsfsDS" class="org.springframework.jndi.JndiObjectFactoryBean">
+		<property name="lookupOnStartup" value="true" />
+		<property name="jndiName" value="java:comp/env/jdbc/tweetsfsDS" />
+		<property name="proxyInterface" value="javax.sql.DataSource" />
+	</bean> -->
+
+    <bean id="mysqlDataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
+        <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
+        <property name="url" value="jdbc:mysql://localhost/tweetsfs"/>
+        <property name="username" value="tweetsfsUser"/>
+        <property name="password" value="tweetsfs12345"/>
+    </bean>
+
+     <bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+        <property name="dataSource" ref="mysqlDataSource"/>
+    </bean>
+
+    
+
+</beans>
