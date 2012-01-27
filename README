@@ -1,0 +1,10 @@
+TweetsFS
+
+TweetsFS is Web application project to save and share your Favorite Twitter Tweets.
+Project Salient features:
+
+Project uses the twitter API and Twitter4J Library.
+
+* Save (Persist) Favorite Tweets of the User
+* Resolve and fetch the HTML / Pages embedded in tweets via bit.ly, t.co etc.
+* Share the saved tweets via HTML EMail
