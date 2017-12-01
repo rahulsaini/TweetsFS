@@ -5,7 +5,7 @@ Project Salient features:
 
 Project uses the twitter API and Twitter4J Library.
 
-* Save (Persist) Favorite Tweets of the User
+* Save (Persist) Favorite Tweets of the User to REDIS NoSQL Data Store
 * Show all the Tweets marked Favorite by a User
   * Filter By User
   * Filter By Time (Chronological)
